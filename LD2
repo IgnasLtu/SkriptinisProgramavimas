@@ -1,0 +1,35 @@
+a = 5:2:34;
+b = exp(a);
+c = a./b;
+d = c(:)
+
+A = [pi/2, 3*i 
+    log(2), 2*pi]
+B = [exp(A(1,1)), exp(A(1,2))]
+C = [A; B];
+suma = sum(C,2);
+
+t = 0:0.002:1;
+A = 7; 
+f = 9; 
+o = 1.2; 
+U1 = 4.5; 
+U2 = 2.5;
+
+s = A*cos(2*pi*f*t);
+n = o*randn(size(t));
+S = s+n;
+virsU1 = S(S > U1);
+S_filtr = S;
+S_filtr(abs(S_filtr) < U2) = 0;
+dydis = length(S);
+a_dydis = length(virsU1)
+didziausias = max(S);
+dydziausia=max(S_filtr);
+maziausia=min(S_filtr);
+
+
+A = input('Įveskite 10 elementų vektoriui A: ');
+B = [A(end:-1:6), A(1:5)];
+disp('Vektoriu B yra ');
+disp(B);
