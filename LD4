@@ -1,0 +1,62 @@
+[x,y] = meshgrid(-2:0.1:2);
+f=sin(abs(x+y)/20).*exp(-abs(x+y));
+figure;
+surf(x,y,f);
+shading interp;
+colormap("autumn");
+view(90, 30);
+title('Trimatis grafikas A');
+xlabel('x ašis');
+ylabel('y ašis');
+zlabel('f(x,y)');
+grid on;
+
+r=linspace(0,1,20);
+alph=0:0.1:2*pi;
+[R, ALPH] = meshgrid(r,alph);
+
+X=R.*cos(ALPH);
+Y=R.*sin(ALPH);
+F=1-2*(X.^2)-3*(Y.^2);
+figure;
+surf(X, Y, F);
+shading faceted;
+colormap("summer");
+view(45, 30);
+title('Trimatis grafikas B');
+xlabel('X ašis');
+ylabel('Y ašis');
+zlabel('f(x,y)');
+grid on;
+
+[X1,Y1]=meshgrid(-2:0.1:2);
+Z=1-(X1.^2+Y1.^2);
+figure;
+surf(X1,Y1,Z);
+shading interp;    
+colormap(jet);      
+camlight;          
+lighting gouraud; 
+title('Paviršius su apšvietimu');
+xlabel('X ašis');
+ylabel('Y ašis');
+zlabel('z(x,y)');
+grid on;
+
+figure;
+surfc(X1, Y1, Z);    
+shading faceted;
+colormap("spring");
+title('Paviršius su kontūru pagrindo plokštumoje');
+xlabel('X ašis');
+ylabel('Y ašis');
+zlabel('z(x,y)');
+grid on;
+
+figure;
+surf(X1, Y1, Z);   
+title('Paprastas funkcijos paviršius');
+xlabel('X ašis');
+ylabel('Y ašis');
+zlabel('z(x,y)');
+grid on;
