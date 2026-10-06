@@ -1,0 +1,44 @@
+A = [1 2 3 
+    4 5 6 
+    7 8 9];
+Acel = num2cell(A);
+Acel{1} = [];
+logine = cellfun(@isempty, Acel);
+disp(A);
+disp(Acel);
+disp(logine);
+
+
+amzius=true;
+while amzius
+   N = input('Įveskite žmogaus amžių (0-120): ');
+  if N<= 0||N>=120 
+        disp('Netinkamas amzius!');
+  else
+        amzius=false;
+        if N<1
+            ats='Mažylis';
+        elseif N<13
+            ats='Vaikas';
+        elseif N<18
+            ats='Paauglys';
+        elseif N<60
+            ats='Suaugęs';
+        else
+            ats='Senelis';
+        end
+    end
+end
+disp(['Zmogus: ', ats]);
+
+x = input('Įveskite x: ');
+y = input('Įveskite y: ');
+for i = 1:30
+    m = randi(x);
+    n = randi(y);
+    A = ones(x, y);
+    A(m,n) = NaN;
+    disp(A);
+    pause(0.4);
+    clc;
+end
